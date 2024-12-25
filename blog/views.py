@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 posts = [
     {
         'id': 0,
@@ -21,7 +22,7 @@ def index(request):
     return render(request, 'blog/index.html', {'posts': posts})
 
 def post_detail(request, id):
-    post = next(post for post in posts if post['id'] == id)
+    post = next((post for post in posts if post['id'] == id), None)  # Разбиваем длинную строку
     return render(request, 'blog/detail.html', {'post': post})
 
 def category_posts(request, category_slug):
