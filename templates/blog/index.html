@@ -1,0 +1,6 @@
+<h1>Главная страница</h1>
+<ul>
+    {% for post in posts %}
+        <li><a href="{% url 'blog:post_detail' post.id %}">{{ post.location }}</a> — {{ post.date }}</li>
+    {% endfor %}
+</ul>
